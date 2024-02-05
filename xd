@@ -6,8 +6,8 @@ getgenv().Config = {
     ["Stop The God's Chalice"] = true,
     ["Stop The Fist of Darkness"] = true,
     ["HopServer"] = {
-        ["Enable"] = true,
-        ["BypassServer"] = true,
+        ["Enable"] = false,
+        ["BypassServer"] = false,
         ["Region"] = "Singapore"
     },
     ["Server Discord"] = "https://discord.gg/mFzWdBUn45"
