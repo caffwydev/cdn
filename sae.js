@@ -194,6 +194,12 @@ function loadScript() {
           );
         }
       }
+  
+            Swal.fire({
+              icon: "info",
+              title: "Thunderbolt",
+              text: "Responda pelo menos uma questão e recarregue a página para que o script funcione corretamente!",
+            })
 }
       let loaded = false;
 
