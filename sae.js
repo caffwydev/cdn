@@ -165,7 +165,7 @@ function loadScript() {
     .then(async () => {
       const questions = perguntas.questions;
       for (let i = 0; i < questions.length; i++) {
-        const rop = questions[i].random_options_sequence;
+        const rop = questions[i].random_options_sequence || [0,1,2,3];
 
         if (questions[i].answered) {
           await regQuest(
@@ -461,7 +461,7 @@ function loadScript() {
               function getById(id) {
                 let letras = "abcdefg";
                 const question = perguntas.questions[id];
-                const order = question.random_options_sequence;
+                const order = question.random_options_sequence || [0,1,2,3];
                 const alternatives = unshuffle(order, question.choices);
                 const questionText = extractPlainText(question.stem);
                 let questioncount = 0;
@@ -555,7 +555,7 @@ ${alternatives
               function getById(id) {
                 let letras = "abcdefg";
                 const question = perguntas.questions[id];
-                const order = question.random_options_sequence;
+                const order = question.random_options_sequence || [0,1,2,3];
                 const endpoint =
                   apiURL +
                   "/questions/get/" +
