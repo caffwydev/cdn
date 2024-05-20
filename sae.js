@@ -148,11 +148,11 @@ XMLHttpRequest.prototype.send = function (body) {
         let id = question.card_item_id
 
         orders[id] = []
-        for (let b = 0; b < question.choices.length; b++) {
-          let choice = question.choices[b]
+        questions.choices.forEach((choice) => {
           console.log(choice.originalIndex)
           orders[id].push(choice.originalIndex)
-        }
+});
+
       }
       criticalData.Orders = orders
       console.log(orders)
