@@ -113,7 +113,7 @@ function extractTeamIdFromUrl() {
 extractTeamIdFromUrl();
 function unshuffle(order, array) {
   let unshuffled = new Array(array.length);
-
+  if (!order) return array;
   for (let i = 0; i < order.length; i++) {
     unshuffled[order[i]] = array[i];
   }
