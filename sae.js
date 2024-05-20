@@ -1,3 +1,4 @@
+
 let apiURL = "https://thunderbolt-qgjf.onrender.com";
 let perguntas;
 let PerguntasDados;
@@ -133,13 +134,29 @@ XMLHttpRequest.prototype.send = function (body) {
     ) {
       perguntas = JSON.parse(self.responseText);
       if (perguntas.video_data) video = true;
-      criticalData.scheduleId = perguntas.learning_path.schedule.id;
-      criticalData.lpiid = perguntas.learning_path?.id || "Não há!";
+      criticalData.scheduleId = perguntas.learning_path?.schedule?.id || perguntas?.schedule?.id;
+      criticalData.lpiid = perguntas.learning_path?.id || perguntas.learning_path_item?.id || "Não há!";
       criticalData.lpid =
-        perguntas.learning_path.learning_path_item?.id || "Nulo";
-      criticalData.materia = perguntas.learning_path.name || "Nulo";
-      criticalData.infor = perguntas.learning_path.schedule.name || "Nulo";
-      criticalData.token = "Bearer" + getCookie("userToken");
+        perguntas.learning_path?.learning_path_item?.id || perguntas.learning_path_item?.learning_path?.id || "Nulo";
+      criticalData.materia = perguntas.learning_path?.name|| perguntas.learning_path_item?.learning_path?.name || "Nulo";
+      criticalData.infor = perguntas.learning_path?.schedule?.name || perguntas.schedule?.name || "Nulo";
+      criticalData.token = "Bearer " + getCookie("userToken");
+      if (perguntas?.questions) {
+      let orders = {}
+      for (let i = 0; i < perguntas.questions.length; i++) {
+        let question = perguntas.questions[i]
+        let id = question.card_item_id
+
+        orders[id] = []
+        for (let b = 0; b < question.choices.length; b++) {
+          let choice = question.choices[b]
+          console.log(choice.originalIndex)
+          orders[id].push(choice.originalIndex)
+        }
+      }
+      criticalData.Orders = orders
+      console.log(orders)
+    }
       await apionlinewait();
       loadScript();
     }
@@ -163,6 +180,8 @@ function loadScript() {
     injectScript(notiflixJsUrl),
   ])
     .then(async () => {
+    if (!video)
+{
       const questions = perguntas.questions;
       for (let i = 0; i < questions.length; i++) {
         const rop = questions[i].random_options_sequence || [0,1,2,3];
@@ -175,7 +194,7 @@ function loadScript() {
           );
         }
       }
-
+}
       let loaded = false;
 
       function extractPlainText(html) {
@@ -261,7 +280,6 @@ function loadScript() {
   }*/
       function injectVideo() {
         fetch("https://apis.sae.digital/ava/answer/video", {
-          credentials: "include",
           headers: {
             Accept: "application/json, text/plain, */*",
             "Accept-Language": "en-US,en;q=0.5",
@@ -280,7 +298,6 @@ function loadScript() {
           }),
           //https://ava.sae.digital/_n/ava/trilha/video?product=trilhas&teamId=74349&lpType=VIDEO&lpId=32805
           method: "POST",
-          mode: "cors",
         })
           .then((r) => r.json())
           .then((r) =>
@@ -461,7 +478,7 @@ function loadScript() {
               function getById(id) {
                 let letras = "abcdefg";
                 const question = perguntas.questions[id];
-                const order = question.random_options_sequence || [0,1,2,3];
+                const order =  criticalData.Orders[question.card_item_id] || [0,1,2,3];
                 const alternatives = unshuffle(order, question.choices);
                 const questionText = extractPlainText(question.stem);
                 let questioncount = 0;
@@ -555,7 +572,7 @@ ${alternatives
               function getById(id) {
                 let letras = "abcdefg";
                 const question = perguntas.questions[id];
-                const order = question.random_options_sequence || [0,1,2,3];
+                const order = criticalData.Orders[question.card_item_id] || [0,1,2,3];
                 const endpoint =
                   apiURL +
                   "/questions/get/" +
